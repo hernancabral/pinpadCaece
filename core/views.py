@@ -12,9 +12,16 @@ def index(request):
 
 
 @csrf_exempt
-def status(request, input):
-    password = PinPadStatus.get_pinpad_status()
+def check_password(request, input):
+    password = PinPadStatus.get_pinpad_password()
     unlock = password == input
     response = {"unlock": unlock}
     Audit.add_audit(unlock)
+    return JsonResponse(response, status=200)
+
+
+@csrf_exempt
+def status(request):
+    unlock = Audit.is_unlocked()
+    response = {"unlock": unlock}
     return JsonResponse(response, status=200)

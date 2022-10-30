@@ -68,7 +68,7 @@ function apiCall( value, callback ) {
 	$.ajax({
 		type: "GET",
 		contentType: "application/json",
-		url: "/api/status/" + value,
+		url: "/api/check-password/" + value,
 		success: function ( r ) {
 			callback( r );
 		},

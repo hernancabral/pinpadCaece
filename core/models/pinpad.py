@@ -9,6 +9,6 @@ class PinPadStatus(models.Model):
     password = CharField(max_length=255, null=False, default='12345678')
 
     @classmethod
-    def get_pinpad_status(cls) -> bool:
+    def get_pinpad_password(cls) -> bool:
         status = cls.objects.filter().first()
         return status and status.password
