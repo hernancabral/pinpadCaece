@@ -3,10 +3,16 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-  <h2>Login</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }} # this will render the default login page
-    <button type="submit">Login</button>
-  </form>
+  <div id="login-form-wrap">
+    <h2>Login</h2>
+    <form id="login-form" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <p>
+      <input type="submit" id="login" value="Login">
+      </p>
+
+    </form>
+  </div>
+
 {% endblock %}

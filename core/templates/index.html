@@ -4,16 +4,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
 
 </head>
 <body>
-<div id="PINcode"></div>
-<a class="btn btn-primary" href="/change-password-view">Cambiar contraseña</a>
+<div id="pinPad">
+  <form action='' method='' name='PINform' id='PINform' autocomplete='off' draggable='true'>
+    <div>
+      <input id='PINbox' type='password' value='' name='PINbox' disabled />
+    </div>
+
+    <div>
+      <input type='button' class='PINbutton' name='1' value='1' id='1' onClick=addNumber(this); />
+      <input type='button' class='PINbutton' name='2' value='2' id='2' onClick=addNumber(this); />
+      <input type='button' class='PINbutton' name='3' value='3' id='3' onClick=addNumber(this); />
+      <input type='button' class='PINbutton' name='A' value='A' id='A' onClick=addNumber(this); />
+    </div>
+
+    <div>
+      <input type='button' class='PINbutton' name='4' value='4' id='4' onClick=addNumber(this); />
+      <input type='button' class='PINbutton' name='5' value='5' id='5' onClick=addNumber(this); />
+      <input type='button' class='PINbutton' name='6' value='6' id='6' onClick=addNumber(this); />
+      <input type='button' class='PINbutton' name='B' value='B' id='B' onClick=addNumber(this); />
+    </div>
+
+    <div>
+      <input type='button' class='PINbutton' name='7' value='7' id='7' onClick=addNumber(this); />
+      <input type='button' class='PINbutton' name='8' value='8' id='8' onClick=addNumber(this); />
+      <input type='button' class='PINbutton' name='9' value='9' id='9' onClick=addNumber(this); />
+      <input type='button' class='PINbutton' name='C' value='C' id='C' onClick=addNumber(this); />
+    </div>
+
+    <div>
+      <input type='button' class='PINbutton' name='*' value='*' id='*' onClick=addNumber(this); />
+      <input type='button' class='PINbutton' name='0' value='0' id='0' onClick=addNumber(this); />
+      <input type='button' class='PINbutton' name='#' value='#' id='#' onClick=addNumber(this); />
+      <input type='button' class='PINbutton' name='D' value='D' id='D' onClick=addNumber(this); />
+    </div>
+
+    <div>
+      <input type='button' class='PINbutton clear' name='-' value='CLEAR' id='-' onClick=clearForm(this); />
+      <input type='button' class='PINbutton enter' name='+' value='ENTER' id='+' onClick=submitForm(PINbox); />
+    </div>
+    <div>
+      <a type='button' class='PINbutton enter' href="/change-password-view">CHANGE PIN</a>
+    </div>
+
+	</form>
+</div>
 </body>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript" src="{{ STATIC_URL }} /static/jquery-3.6.1.min.js"></script>
