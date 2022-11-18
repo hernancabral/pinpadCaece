@@ -36,7 +36,7 @@ def check_password(request, input):
         status_code = 200
     else:
         status_code = 403
-    return JsonResponse({}, status=status_code)
+    return JsonResponse(None, status=status_code)
 
 
 @csrf_exempt
@@ -46,4 +46,4 @@ def status(request):
         status_code = 200
     else:
         status_code = 403
-    return JsonResponse({}, status=status_code)
+    return JsonResponse(None, status=status_code)
